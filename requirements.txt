@@ -1,6 +1,6 @@
 streamlit==1.27.2
 netmiko
-telnetlib
+telnetlib3
 socket
 pandas
 numpy
