@@ -1,7 +1,7 @@
 streamlit==1.27.2
 netmiko
 telnetlib3
-socket
+sockets
 pandas
 numpy
 time
