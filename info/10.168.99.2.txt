@@ -1,0 +1,1 @@
+{'device': {'device_type': 'cisco_xe', 'host': '10.168.99.2', 'username': 'admin', 'password': 'C1sco123'}, 'name': 'C9200'}
