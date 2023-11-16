@@ -25,8 +25,8 @@ def add_device(file,name,ip,dtype,user,passw):
     f.close()
 
 from sys import path
-path.append('C:\\Users\\Admin\\Desktop\\python\\mynet\\info')
-device_type_l=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/device_type.txt","r").read().split("\n")
+path.append('info')
+device_type_l=open("info/device_type.txt","r").read().split("\n")
 device_type=tuple(device_type_l)
 st.title('Add device')
 with st.form("add_device",clear_on_submit=True):
@@ -42,18 +42,18 @@ with st.form("add_device",clear_on_submit=True):
     if submitted and (st.session_state.name=="" or st.session_state.ip=="" or st.session_state.username=="" or st.session_state.passw==""):
         st.error("miss info!")
     elif submitted:
-        device_list=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/device_list.txt","r").read().split("\n")
-        ip_list=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/ip_list.txt","r").read().split("\n")
+        device_list=open("info/device_list.txt","r").read().split("\n")
+        ip_list=open("info/ip_list.txt","r").read().split("\n")
         if st.session_state.name not in device_list or st.session_state.ip not in ip_list:
-            add=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/device_list.txt","a")
+            add=open("info/device_list.txt","a")
             add.write("\n")
             add.write(st.session_state.name)
             add.close()
-            add=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/ip_list.txt","a")
+            add=open("info/ip_list.txt","a")
             add.write("\n")
             add.write(st.session_state.ip)
             add.close()
-            file="C:\\Users\\Admin\\Desktop\\python\\mynet\\info/"+str(st.session_state.ip)+".txt"
+            file="info/"+str(st.session_state.ip)+".txt"
             add_device(file,st.session_state.name,st.session_state.ip,device_t,st.session_state.username,st.session_state.passw)
             st.toast("successful!:heavy_check_mark:")
             time.sleep(0.25)

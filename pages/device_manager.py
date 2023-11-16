@@ -16,10 +16,10 @@ st.set_page_config(
         'About': "# :rainbow[Made by me!] :sparkles:"
     }
 )
-path.append('C:\\Users\\Admin\\Desktop\\python\\mynet\\info')
-device_list=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/device_list.txt","r").read().split("\n")
+path.append('info')
+device_list=open("info/device_list.txt","r").read().split("\n")
 device_list.remove("")
-ip_list=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/ip_list.txt","r").read().split("\n")
+ip_list=open("info/ip_list.txt","r").read().split("\n")
 ip_list.remove("")
 st.title('Device manager')
 h=st.empty()
@@ -69,12 +69,12 @@ def delete_fu(dli,ili):
         ip_list.remove(i)
         cmd="del info\\"+i+".txt"
         os.system(cmd)
-    device_lis=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/device_list.txt","w")
+    device_lis=open("info/device_list.txt","w")
     for i in device_list:
         device_lis.write("\n")
         device_lis.write(i)
     device_lis.close()
-    ip_lis=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/ip_list.txt","w")
+    ip_lis=open("info/ip_list.txt","w")
     for i in ip_list:
         ip_lis.write("\n")
         ip_lis.write(i)
@@ -100,7 +100,7 @@ def add_device(file,name,ip,dtype,user,passw):
 def s_edit():
     if st.session_state.username =="" or st.session_state.passw =="":
         st.error("miss info!")
-        device_type_l=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/device_type.txt","r").read().split("\n")
+        device_type_l=open("info/device_type.txt","r").read().split("\n")
         device_type_l.remove(device["device"]["device_type"])
         device_type_l.insert(0,device["device"]["device_type"])
         device_type=tuple(device_type_l)
@@ -125,7 +125,7 @@ def s_edit():
     else:
         cmd="del info\\"+device["device"]["host"]+".txt"
         os.system(cmd)
-        file="C:\\Users\\Admin\\Desktop\\python\\mynet\\info/"+str(device["device"]["host"])+".txt"
+        file="info/"+str(device["device"]["host"])+".txt"
         try:
             add_device(file,str(device["name"]),str(device["device"]["host"]),st.session_state.device_t,st.session_state.username,st.session_state.passw)
         except:
@@ -133,7 +133,7 @@ def s_edit():
         st.toast("successful!:heavy_check_mark:")
     return None
 def edit_info(device):
-    device_type_l=open("C:\\Users\\Admin\\Desktop\\python\\mynet\\info/device_type.txt","r").read().split("\n")
+    device_type_l=open("info/device_type.txt","r").read().split("\n")
     device_type_l.remove(device["device"]["device_type"])
     device_type_l.insert(0,device["device"]["device_type"])
     device_type=tuple(device_type_l)
@@ -182,7 +182,7 @@ if edit:
     h.empty()
     hea="edit: " + dli[0] + "/" + ili[0]
     st.header(hea)
-    file="C:\\Users\\Admin\\Desktop\\python\\mynet\\info/"+ili[0]+".txt"
+    file="info/"+ili[0]+".txt"
     device=take_info(file)
     edit_info(device)
     st.stop()
