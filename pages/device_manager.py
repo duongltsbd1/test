@@ -154,7 +154,6 @@ def edit_info(device):
             submitted = st.form_submit_button("Submit",on_click= s_edit)
         with co2:
             cancel = st.form_submit_button("Cancel",type="secondary")
-st.write("st should be here")
 df = pd.DataFrame(
     {
         "name": device_list,
