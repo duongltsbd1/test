@@ -4,10 +4,5 @@ telnetlib3
 sockets
 pandas
 numpy
-time
-requests
 json
-re
-sys
-os
 selenium
