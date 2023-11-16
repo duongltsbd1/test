@@ -4,5 +4,5 @@ telnetlib3
 sockets
 pandas
 numpy
-json
+jsons
 selenium
