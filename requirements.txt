@@ -1,0 +1,13 @@
+streamlit = 1.27.2
+netmiko
+telnetlib
+socket
+pandas
+numpy
+time
+requests
+json
+re
+sys
+os
+selenium
